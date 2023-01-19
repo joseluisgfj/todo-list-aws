@@ -5,10 +5,12 @@ import time
 import uuid
 import json
 import functools
-# Comentario JLGF: Al usar la forma from ... import ..., le indicamos a Python específicamente cuáles objetos queremos importar de un módulo en particular
+# Comentario JLGF: Al usar la forma from ... import
+# le indicamos a Python específicamente cuáles objetos
+# queremos importar de un módulo en particular
 from botocore.exceptions import ClientError
 
-# Comentario JLGF: Definición de función 'get_table'
+# Comentario JLGF: Definición de función get_table
 def get_table(dynamodb=None):
     if not dynamodb:
         URL = os.environ['ENDPOINT_OVERRIDE']
@@ -22,7 +24,7 @@ def get_table(dynamodb=None):
     table = dynamodb.Table(os.environ['DYNAMODB_TABLE'])
     return table
 
-# Comentario JLGF: Definición de función 'get_item'
+# Comentario JLGF: Definición de función get_item
 def get_item(key, dynamodb=None):
     table = get_table(dynamodb)
     try:
@@ -39,14 +41,14 @@ def get_item(key, dynamodb=None):
         if 'Item' in result:
             return result['Item']
 
-# Comentario JLGF: Definición de función 'get_items'
+# Comentario JLGF: Definición de función get_items
 def get_items(dynamodb=None):
     table = get_table(dynamodb)
     # fetch todo from the database
     result = table.scan()
     return result['Items']
 
-# Comentario JLGF: Definición de función 'put_item'
+# Comentario JLGF: Definición de función put_item
 def put_item(text, dynamodb=None):
     table = get_table(dynamodb)
     timestamp = str(time.time())
@@ -72,7 +74,7 @@ def put_item(text, dynamodb=None):
     else:
         return response
 
-# Comentario JLGF: Definición de función 'update_item'
+# Comentario JLGF: Definición de función update_item
 def update_item(key, text, checked, dynamodb=None):
     table = get_table(dynamodb)
     timestamp = int(time.time() * 1000)
@@ -101,7 +103,7 @@ def update_item(key, text, checked, dynamodb=None):
     else:
         return result['Attributes']
 
-# Comentario JLGF: Definición de función 'delete_item'
+# Comentario JLGF: Definición de función delete_item
 def delete_item(key, dynamodb=None):
     table = get_table(dynamodb)
     # delete the todo from the database
@@ -117,7 +119,7 @@ def delete_item(key, dynamodb=None):
     else:
         return
 
-# Comentario JLGF: Definición de función 'create_todo_table'
+# Comentario JLGF: Definición de función create_todo_table
 def create_todo_table(dynamodb):
     # For unit testing
     tableName = os.environ['DYNAMODB_TABLE']
