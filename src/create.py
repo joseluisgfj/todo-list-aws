@@ -17,7 +17,8 @@ def create(event, context):
         # se escribe la Información de la excepción
         raise Exception("Couldn't create the todo item.")
     # Comentario JLGF: Si se introdujo información valida en el campo
-    # se procede a intrucirla en el programa mediante la funcion todoList.put_item
+    # se procede a intrucirla en el programa mediante 
+    # la funcion todoList.put_item
     item = todoList.put_item(data['text'])
     # create a response
     # Comentario JLGF: Se retorna una respuesta 200
