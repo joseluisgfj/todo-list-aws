@@ -4,7 +4,9 @@ import logging
 import decimalencoder
 import todoList
 
-# Comentario JLGF: Definición de función 'update'
+# Comentario JLGF: Definición de función update
+
+
 def update(event, context):
     data = json.loads(event['body'])
     # Comentario JLGF: Se realiza una comprobación
