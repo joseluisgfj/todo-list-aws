@@ -11,6 +11,7 @@ import functools
 from botocore.exceptions import ClientError
 
 # Comentario JLGF: Definición de función get_table
+
 def get_table(dynamodb=None):
     if not dynamodb:
         URL = os.environ['ENDPOINT_OVERRIDE']
@@ -25,6 +26,7 @@ def get_table(dynamodb=None):
     return table
 
 # Comentario JLGF: Definición de función get_item
+
 def get_item(key, dynamodb=None):
     table = get_table(dynamodb)
     try:
@@ -42,6 +44,7 @@ def get_item(key, dynamodb=None):
             return result['Item']
 
 # Comentario JLGF: Definición de función get_items
+
 def get_items(dynamodb=None):
     table = get_table(dynamodb)
     # fetch todo from the database
@@ -49,6 +52,7 @@ def get_items(dynamodb=None):
     return result['Items']
 
 # Comentario JLGF: Definición de función put_item
+
 def put_item(text, dynamodb=None):
     table = get_table(dynamodb)
     timestamp = str(time.time())
@@ -75,6 +79,7 @@ def put_item(text, dynamodb=None):
         return response
 
 # Comentario JLGF: Definición de función update_item
+
 def update_item(key, text, checked, dynamodb=None):
     table = get_table(dynamodb)
     timestamp = int(time.time() * 1000)
@@ -104,6 +109,7 @@ def update_item(key, text, checked, dynamodb=None):
         return result['Attributes']
 
 # Comentario JLGF: Definición de función delete_item
+
 def delete_item(key, dynamodb=None):
     table = get_table(dynamodb)
     # delete the todo from the database
@@ -120,6 +126,7 @@ def delete_item(key, dynamodb=None):
         return
 
 # Comentario JLGF: Definición de función create_todo_table
+
 def create_todo_table(dynamodb):
     # For unit testing
     tableName = os.environ['DYNAMODB_TABLE']
