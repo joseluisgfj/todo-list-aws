@@ -16,7 +16,7 @@ def update(event, context):
         raise Exception("Couldn't update the todo item.")
         # Comentario JLGF:No es necesario el return debido
         # a la excepción además no se estaba retornando nada
-        #return
+        return
     # update the todo in the database
     # Comentario JLGF: Si se pasa la comprobación previa
     # se invoca a la función todoList.update_item para actualizar la BBDD
