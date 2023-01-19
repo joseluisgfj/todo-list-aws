@@ -4,6 +4,8 @@ import decimalencoder
 import todoList
 
 # Comentario JLGF: Definición de función list
+
+
 def list(event, context):
     # fetch all todos from the database
     result = todoList.get_items()
