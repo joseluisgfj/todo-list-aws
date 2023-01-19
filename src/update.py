@@ -7,15 +7,15 @@ import todoList
 # Comentario JLGF: Definición de función 'update'
 def update(event, context):
     data = json.loads(event['body'])
-    # Comentario JLGF: Se realiza una comprobación 
-    # antes de actualizar la Base de Datos, 
+    # Comentario JLGF: Se realiza una comprobación
+    # antes de actualizar la Base de Datos
     # si no se cumple no llega a actualizarse
     # generando una escritura en el log y una excepción en el programa
     if 'text' not in data or 'checked' not in data:
         logging.error("Validation Failed")
         raise Exception("Couldn't update the todo item.")
-        # Comentario JLGF:No es necesario el return debido 
-        # a la excepción además no se estaba retornando nada.
+        # Comentario JLGF:No es necesario el return debido
+        # a la excepción además no se estaba retornando nada
         #return
     # update the todo in the database
     # Comentario JLGF: Si se pasa la comprobación previa
