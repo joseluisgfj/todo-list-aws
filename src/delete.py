@@ -4,6 +4,8 @@
 import todoList
 
 # Comentario JLGF: Definición de función delete
+
+
 def delete(event, context):
     # Comentario JLGF: Se invoca a la funcion todoList.delete_item
     # definida en todoList.py, para borrar un item concreto
