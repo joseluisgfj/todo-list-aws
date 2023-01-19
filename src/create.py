@@ -4,6 +4,7 @@ import logging
 import todoList
 
 # Comentario JLGF: Definición de función create
+
 def create(event, context):
     # Comentario JLGF: Se obtiene el texto introducido en el programa
     data = json.loads(event['body'])
