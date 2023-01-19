@@ -4,6 +4,8 @@ import decimalencoder
 import todoList
 
 # Comentario JLGF: Definición de función get
+
+
 def get(event, context):
     # create a response
     # Comentario JLGF: Se invoca a la funcion todoList.get_item
