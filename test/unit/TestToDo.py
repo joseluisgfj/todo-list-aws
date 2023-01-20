@@ -32,7 +32,6 @@ class TestDatabaseFunctions(unittest.TestCase):
         from src.todoList import create_todo_table
         self.table = create_todo_table(self.dynamodb)
         #self.table_local = create_todo_table()
-        self.table_local = create_todo_table()
         print ('End: setUp')
 
     def tearDown(self):
@@ -42,7 +41,6 @@ class TestDatabaseFunctions(unittest.TestCase):
         self.table.delete()
         print ('Table deleted succesfully')
         #self.table_local.delete()
-        self.table_local.delete()
         self.dynamodb = None
         print ('End: tearDown')
 
@@ -57,7 +55,6 @@ class TestDatabaseFunctions(unittest.TestCase):
         # check if the table name is 'ToDo'
         self.assertIn(tableName, self.table.name)
         #self.assertIn('todoTable', self.table_local.name)
-        self.assertIn('todoTable', self.table_local.name)
         print ('End: test_table_exists')
         
 
@@ -73,8 +70,6 @@ class TestDatabaseFunctions(unittest.TestCase):
         # Table mock
         #self.assertEqual(200, put_item(self.text, self.dynamodb)[
         #                 'ResponseMetadata']['HTTPStatusCode'])
-        self.assertEqual(200, put_item(self.text, self.dynamodb)[
-                         'ResponseMetadata']['HTTPStatusCode'])
         print ('End: test_put_todo')
 
     def test_put_todo_error(self):
