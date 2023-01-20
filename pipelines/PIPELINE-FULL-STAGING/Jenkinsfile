@@ -15,7 +15,7 @@ pipeline {
                 echo 'Unit testing:'
                 sh "bash pipelines/PIPELINE-FULL-STAGING/unit_test.sh"
                 echo 'Static program analysis:'
-                sh "ls"
+                sh "remote -m"
             }
             post {
                 always {
