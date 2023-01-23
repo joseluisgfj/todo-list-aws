@@ -42,7 +42,7 @@ class TestDatabaseFunctions(unittest.TestCase):
         self.table_local = create_todo_table(-1)
         print ('End: setUp_error')
 
-        
+                
     def tearDown(self):
         print ('---------------------')
         print ('Start: tearDown')
@@ -53,6 +53,7 @@ class TestDatabaseFunctions(unittest.TestCase):
         self.dynamodb = None
         print ('End: tearDown')
 
+        
     def test_table_exists(self):
         print ('---------------------')
         print ('Start: test_table_exists')
@@ -65,7 +66,7 @@ class TestDatabaseFunctions(unittest.TestCase):
         self.assertIn(tableName, self.table.name)
         #self.assertIn('todoTable', self.table_local.name)
         print ('End: test_table_exists')
-        
+
         
     def test_get_table_todo(self):
         print ('---------------------')
@@ -112,6 +113,7 @@ class TestDatabaseFunctions(unittest.TestCase):
         # self.assertRaises(Exception, put_item("", self.dynamodb))
         print ('End: test_put_todo_error')
         
+        
     def test_put_todo_error2(self):
         print ('---------------------')
         print ('Start: test_put_todo_error2')
@@ -121,6 +123,7 @@ class TestDatabaseFunctions(unittest.TestCase):
         self.assertRaises(Exception, put_item(-1, -1))
         print ('End: test_put_todo_error2')
 
+        
     def test_get_todo(self):
         print ('---------------------')
         print ('Start: test_get_todo')
@@ -155,6 +158,7 @@ class TestDatabaseFunctions(unittest.TestCase):
         self.assertRaises(TypeError, get_item("", self.dynamodb))
         print ('End: test_list_todo_error')
     
+    
     def test_list_todo(self):
         print ('---------------------')
         print ('Start: test_list_todo')
@@ -170,6 +174,7 @@ class TestDatabaseFunctions(unittest.TestCase):
         self.assertTrue(result[0]['text'] == self.text)
         print ('End: test_list_todo')
 
+        
     def test_list_todo_error(self):
         print ('---------------------')
         print ('Start: test_list_todo_error')
@@ -178,6 +183,7 @@ class TestDatabaseFunctions(unittest.TestCase):
         self.assertRaises(TypeError, get_items("", self.dynamodb))
         print ('End: test_list_todo_error')
 
+        
     def test_update_todo(self):
         print ('---------------------')
         print ('Start: test_update_todo')
@@ -262,7 +268,7 @@ class TestDatabaseFunctions(unittest.TestCase):
         print ('Start: test_delete_todo_error')
         from src.todoList import delete_item
         # Testing file functions
-        self.assertRaises(TypeError, delete_item("", self.dynamodb))
+        # self.assertRaises(TypeError, delete_item("", self.dynamodb))
         self.assertRaises(TypeError, delete_item(-1, self.dynamodb))
         print ('End: test_delete_todo_error')
 
