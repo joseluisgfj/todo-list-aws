@@ -130,12 +130,10 @@ class TestDatabaseFunctions(unittest.TestCase):
         print ('---------------------')
         print ('Start: test_get_todo_error')
         from src.todoList import get_item
-        from src.todoList import put_item
         
         responseGet = get_item(
                 -1,
                 self.dynamodb)
-        print ('Response Get:' + str(responseGet))
         self.assertRaises(TypeError, get_item("", self.dynamodb))
         print ('End: test_list_todo_error')
     
