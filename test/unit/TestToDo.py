@@ -68,6 +68,16 @@ class TestDatabaseFunctions(unittest.TestCase):
         print ('Response put_item:' + str(response))
         self.assertEqual(200, response['statusCode'])
         print ('End: test_get_table_todo')
+
+        
+    def test_get_table_todo_error(self):
+        print ('---------------------')
+        print ('Start: test_get_table_todo_error')
+        # Testing file functions
+        from src.todoList import get_table
+        # Table mock
+        self.assertRaises(Exception, get_table(self.dynamodb))
+        print ('End: test_get_table_todo_error')
         
     def test_put_todo(self):
         print ('---------------------')
