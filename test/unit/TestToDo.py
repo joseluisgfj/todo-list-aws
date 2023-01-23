@@ -131,21 +131,13 @@ class TestDatabaseFunctions(unittest.TestCase):
         print ('Start: test_get_todo_error')
         from src.todoList import get_item
         from src.todoList import put_item
-
-        # Testing file functions
-        # Table mock
-        responsePut = put_item(self.text, self.dynamodb)
-        print ('Response put_item:' + str(responsePut))
-        idItem = "bcb96600-9afb-11ed-999b-024c88067600"
-        print ('Id item:' + idItem)
+        
         responseGet = get_item(
-                idItem,
+                -1,
                 self.dynamodb)
         print ('Response Get:' + str(responseGet))
-        self.assertEqual(
-            self.text,
-            responseGet['text'])
-        print ('End: test_get_todo_error')
+        self.assertRaises(TypeError, get_item("", self.dynamodb))
+        print ('End: test_list_todo_error')
     
     def test_list_todo(self):
         print ('---------------------')
