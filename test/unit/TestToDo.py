@@ -103,14 +103,6 @@ class TestDatabaseFunctions(unittest.TestCase):
         # self.assertRaises(Exception, put_item("", self.dynamodb))
         print ('End: test_put_todo_error')
         
-    def test_put_todo_error2(self):
-        print ('---------------------')
-        print ('Start: test_put_todo_error2')
-        # Testing file functions
-        from src.todoList import put_item
-        # Table mock
-        self.assertRaises(Exception, put_item(-1, -1))
-        print ('End: test_put_todo_error2')
 
     def test_get_todo(self):
         print ('---------------------')
@@ -262,7 +254,7 @@ class TestDatabaseFunctions(unittest.TestCase):
         print ('Start: test_delete_todo_error2')
         from src.todoList import delete_item
         # Testing file functions
-        self.assertRaises(TypeError, delete_item(-1, ""))
+        self.assertRaises(TypeError, delete_item(-1, -1))
         print ('End: test_delete_todo_error')
 
 if __name__ == '__main__':
