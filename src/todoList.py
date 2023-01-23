@@ -15,7 +15,7 @@ def get_table(dynamodb=None):
     if not dynamodb:
         URL = os.environ['ENDPOINT_OVERRIDE']
         if URL:
-            print('URL dynamoDB:'+URL)
+            # print('URL dynamoDB:'+URL)
             boto3.client = functools.partial(boto3.client, endpoint_url=URL)
             boto3.resource = functools.partial(boto3.resource,
                                                endpoint_url=URL)
