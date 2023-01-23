@@ -10,6 +10,7 @@ import json
 class TestDatabaseFunctions(unittest.TestCase):
     def setUp(self):
         print ('---------------------')
+        print ('---------------------')
         print ('Start: setUp')
         warnings.filterwarnings(
             "ignore",
